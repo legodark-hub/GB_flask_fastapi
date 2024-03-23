@@ -1,0 +1,14 @@
+<!-- auth.html -->
+{% extends "base.html" %}
+
+{% block body %}
+<form method="POST">
+  <div class="form-group">
+        <input type="text" class="form-control" name="name" placeholder="Your name">
+    </div>
+    <div class="form-group">
+        <input type="email" class="form-control" name="email" placeholder="Your email">
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+{% endblock %}
