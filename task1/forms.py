@@ -11,4 +11,4 @@ class RegistrationForm(FlaskForm):
     password2 = PasswordField(
         "Повторите пароль", validators=[DataRequired(), EqualTo("password")]
     )
-    submit = SubmitField("Зарегистрироваться")
+
