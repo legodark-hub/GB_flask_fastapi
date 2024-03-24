@@ -5,26 +5,19 @@
     <h1>Регистрация</h1>
     <form action="" method="post">
         {{ form.hidden_tag() }}
+        {% for field in form if field.name != 'csrf_token' %}
         <p>
-            {{ form.first_name.label }}<br>
-            {{ form.first_name(size=30) }}<br>
-        </p>
-        <p>
-            {{ form.last_name.label }}<br>
-            {{ form.last_name(size=30) }}<br>
-        </p>
-        <p>
-            {{ form.email.label }}<br>
-            {{ form.email(size=30) }}<br>
-        </p>
-        <p>
-            {{ form.password.label }}<br>
-            {{ form.password(size=30) }}<br>
-        </p>
-        <p>
-            {{ form.password2.label }}<br>
-            {{ form.password2(size=30) }}<br>
-        </p>
-        <p>{{ form.submit() }}</p>
+            {{ field.label }}<br>
+            {{ field }}
+            {% if field.errors %}
+                <ul class="alert alert-danger">
+                {% for error in field.errors %}
+                    <li>{{ error }}</li>
+                {% endfor %}
+                </ul>
+            {% endif %}
+            </p>
+        {% endfor %}
+        <p><input type="submit" value="Зарегистрироваться"></p>
     </form>
 {% endblock %}
